@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+require 'cuesnap'
+
+begin
+  require 'cuesnap/cli'
+  CueSnap::CLI.start
+rescue Interrupt => e
+  puts "\nQuitting..."
+  exit 1
+rescue SystemExit => e
+  exit e.status
+end
