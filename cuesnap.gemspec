@@ -15,8 +15,11 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.version       = CueSnap::VERSION
 
-  # It lets us parse cue files, which is important.
+  # Regular Gems
   s.add_dependency 'rubycue', '~> 0.1.0'
-  # Who wants to code command-line interfaces?
   s.add_dependency 'thor', '~> 0.15.4'
+
+  # Development Gems
+  s.add_development_dependency 'minitest', '~> 3.3.0'
+  s.add_development_dependency 'guard-minitest', '~> 0.5.0'
 end
