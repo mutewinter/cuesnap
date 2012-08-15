@@ -5,7 +5,6 @@ Gem::Specification.new do |s|
   s.authors       = ['Jeremy Mack']
   s.email         = ['jeremy@pileofturtles.com']
   s.description   = %q{A command line tool for splitting mp3s with cue files}
-  s.summary       = %q{Easily build JavaScript projects}
   s.homepage      = "http://github.com/mutewinter/cuesnap"
 
   s.files         = `git ls-files`.split($\)
