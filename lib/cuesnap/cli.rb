@@ -1,4 +1,5 @@
 require 'thor'
+require 'cuesnap'
 
 module CueSnap
   class CLI < Thor
@@ -7,8 +8,6 @@ module CueSnap
     desc: "Because, fuck sorting.
       e.g. Holy Crap - So Cool.mp3"
     def cut(mp3_file, cue_file)
-      puts "You gave me music #{mp3_file} and cuts #{cue_file}"
-
       CueSnap::Splitter.new(mp3_file, cue_file, options).split!
     end
     default_task :cut
