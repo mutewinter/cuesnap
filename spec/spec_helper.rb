@@ -64,7 +64,9 @@ class MyMiniTest
     end
 
     def remove_mp3s
-      Dir.glob("#{OUTPUT_FOLDER}/**/*.mp3").each{ |f| File.delete f }
+      Dir.glob("#{OUTPUT_FOLDER}/**/*.mp3").each do |f|
+        File.delete f unless File.directory? f
+      end
     end
 
     def remove_empty_directories

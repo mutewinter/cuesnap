@@ -1,4 +1,5 @@
 require 'hashie'
+require 'rubycue'
 
 module CueSnap
   class Splitter
@@ -17,9 +18,10 @@ module CueSnap
       @mp3_file = mp3_file
 
       @options = Hashie::Mash.new options
-      @output_folder ||= @options.output_folder
+      @output_folder = @options.output_folder
+      @output_folder ||= File.basename(mp3_file, '.mp3')
 
-      unless cue_file.instance_of? RubyCue::Cuesheet
+      unless cue_file.instance_of? ::RubyCue::Cuesheet
         file_contents = File.read cue_file
         file_contents.encode!('UTF-8', 'UTF-8', invalid: :replace)
         @cuesheet = RubyCue::Cuesheet.new file_contents
