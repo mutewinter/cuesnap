@@ -12,8 +12,8 @@ _Tested on Mac OS X 10.7 (Lion)._
 
 **Okay, let's go**
 
- 1. `brew install libmp3splt` _Install the mp3 clipping lbrary, it does the heavy-lifting._
- 1. `gem install cuesnap`
+ 1. `brew install mp3splt` _Install the mp3 clipping lbrary, it does the heavy-lifting._
+ 1. `gem install cuesnap` _The cuesnap command will now be available._
  1. `cuesnap phattrack.mp3 phattrack.cue` _*snap -- zzrgt -- crack*_
  1. `open phattrack` _Gaze into the eyes of your slim mp3 files_
 
@@ -37,9 +37,6 @@ _Tested on Mac OS X 10.7 (Lion)._
 ## Command Line Options
 
 ```
-  --no-spaces (-ns) -
-    White space in file names, ARE YOU FUCKING INSANE?
-      e.g. 02_Holy_Crap_-_So_Cool.mp3
   --no-numbers (-nn) -
     Because, fuck sorting.
       e.g. Holy Crap - So Cool.mp3
@@ -47,12 +44,12 @@ _Tested on Mac OS X 10.7 (Lion)._
 
 ## Setup for Development
 
+ 1. Follow the steps in the **Setup** section.
  1. `git clone http://github.com/mutewinter/cuesnap` _Clone this repo, duh._
  1. `cd cuesnap` _Change directory into the folder._
- 1. `brew install libmp3splt` _Install the mp3 clipping lbrary, it does the heavy-lifting._
  1. `bundle` _Setup those pretty Ruby gems._
- 1. `cuesnap phattrack.mp3 phattrack.cue` _*snap -- zzrgt -- crack*_
- 1. `open phattrack` _Gaze into the eyes of your slim mp3 files_
+
+ That's it, now code something awesome and tell me about it.
 
 ## Contributing
 
