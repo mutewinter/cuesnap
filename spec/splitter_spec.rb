@@ -48,4 +48,17 @@ describe CueSnap::Splitter do
     end
   end
 
+  describe 'When splitting same_name.mp3 without specified cuefile' do
+
+    before do
+      load_splitter 'same_name', nil
+      cd_to_output
+    end
+
+    it 'should default to using same_name.cue' do
+      File.basename(@splitter.cue_file).must_equal 'same_name.cue'
+    end
+
+  end
+
 end

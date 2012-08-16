@@ -16,7 +16,11 @@ OUTPUT_FOLDER = File.expand_path("../../tmp/spec_output", __FILE__)
 # Helpers
 # -------------
 def cuesheet_fixture(name)
-  fixture_path "#{name}.cue"
+  if name && name.strip != ''
+    fixture_path "#{name}.cue"
+  else
+    name
+  end
 end
 
 def mp3_fixture(name)

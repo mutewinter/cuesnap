@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   # Regular Gems
   s.add_dependency 'rubycue', '~> 0.1.0'
-  s.add_dependency 'thor', '~> 0.15.4'
+  s.add_dependency 'methadone', '~> 1.2.1'
   s.add_dependency 'hashie', '~> 1.2.0'
 
   # Development Gems

@@ -3,7 +3,7 @@ require 'bundler/setup'
 
 begin
   require 'cuesnap/cli'
-  CueSnap::CLI.start
+  CueSnap::CLI.go!
 rescue Interrupt => e
   puts "\nQuitting..."
   exit 1
