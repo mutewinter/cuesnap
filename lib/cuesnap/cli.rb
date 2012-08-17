@@ -1,6 +1,7 @@
 require 'cuesnap'
-
 require 'methadone'
+require 'pathname'
+
 module CueSnap
   class CLI
     include Methadone::Main
@@ -10,7 +11,16 @@ module CueSnap
       # no-numbers comes in false when it's set, I know, crazy.
       options[:no_numbers] = !options[:'no-numbers'] if options.has_key?(:'no-numbers')
 
-      CueSnap::Splitter.new(mp3_file, cue_file, options).split!
+      file_not_found mp3_file unless File.exists? mp3_file
+
+      splitter = CueSnap::Splitter.new(mp3_file, cue_file, options)
+
+      if File.exists? splitter.cue_file
+        splitter.split!
+      else
+        file_not_found splitter.cue_file
+      end
+
     end
 
     on('--no-numbers')
@@ -18,5 +28,9 @@ module CueSnap
 
     arg :mp3_file
     arg :cue_file, :optional
+
+    def self.file_not_found(file)
+      help_now! "I looked for #{file}, but didn't find it."
+    end
   end
 end

@@ -25,8 +25,6 @@ module CueSnap
       @options = Hashie::Mash.new options
       @output_folder = @options.output_folder
       @output_folder ||= mp3_filename
-
-      parse_cue_file
     end
 
     # Internal: Parses the cue file using RubyCue and sets the @cuesheet
@@ -45,6 +43,10 @@ module CueSnap
     #
     # Returns nothing.
     def split!
+      # Wait until the last second to parse the cue file, in case the user
+      # changes it before we split.
+      parse_cue_file
+
       format = "@p - @t"
 
       song_count_length = (@cuesheet.songs.length + 1).to_s.length
