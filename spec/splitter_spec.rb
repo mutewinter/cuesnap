@@ -3,10 +3,22 @@ require File.expand_path('../spec_helper', __FILE__)
 
 describe CueSnap::Splitter do
 
-  describe 'When splitting ten_minute.mp3 and unicode.cue' do
-
+  describe 'When splitting a using a cue file with unicode' do
     before do
       load_splitter 'ten_minute', 'unicode'
+      cd_to_output
+    end
+
+    it 'the fourth track should be proper unicode' do
+      @splitter.split!
+      created_mp3s[3].must_equal "Tësting Unicode"
+    end
+
+  end
+
+  describe 'When splitting an ten_minute.mp3 with four_splits.cue' do
+    before do
+      load_splitter 'ten_minute', 'four_splits'
       cd_to_output
     end
 
@@ -26,11 +38,6 @@ describe CueSnap::Splitter do
       @splitter.options.no_numbers = true
       @splitter.split!
       created_mp3s.first.must_equal 'Derp Man - 36 Second Track.mp3'
-    end
-
-    it 'the fourth track should be proper unicode' do
-      @splitter.split!
-      created_mp3s[3].must_equal "Tësting Unicode"
     end
 
   end

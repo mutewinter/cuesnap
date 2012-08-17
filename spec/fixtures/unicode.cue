@@ -1,6 +1,6 @@
 PERFORMER "Tëst"
-TITLE "Small Unicode Test"
-FILE "small_unicode.mp3" MP3
+TITLE "Unicode Test"
+FILE "ten_minute.mp3" MP3
   TRACK 01 AUDIO
     PERFORMER "I'm First"
     TITLE "Always First"
