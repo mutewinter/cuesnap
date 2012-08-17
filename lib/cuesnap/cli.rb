@@ -26,6 +26,9 @@ module CueSnap
     on('--no-numbers')
     on('-q', '--quiet')
 
+    version     CueSnap::VERSION
+    description 'Snapping MP3s with cue sheets faster than your mom pops Pringle tops.'
+
     arg :mp3_file
     arg :cue_file, :optional
 
