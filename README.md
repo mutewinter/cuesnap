@@ -9,7 +9,9 @@ Snapping MP3s with [cue sheets](1) faster than your mom pops Pringle tops.
 _Tested on Mac OS X 10.7 (Lion)._
 
 **Prerequisites**
+
  1. [Ruby 1.9.2 or Greater](https://rvm.io/)
+ 2. [Mac OS X](http://store.apple.com)
 
 **Okay, let's go**
 
@@ -58,6 +60,7 @@ _Tested on Mac OS X 10.7 (Lion)._
 
  1. Unicode Support _Fail test is already in_.
  2. Error Message when mp3splt is missing.
+ 3. Lower requirements to Ruby 1.8.7 (OS X built-in Ruby).
 
 ## Contributing
 
