@@ -10,13 +10,13 @@ _Tested on Mac OS X 10.7 (Lion)._
 
 **Prerequisites**
 
- 1. [Ruby 1.9.2 or Greater](https://rvm.io/)
- 2. [Mac OS X](http://store.apple.com)
+ 1. [Mac OS X](http://store.apple.com)
+ 1. [Ruby 1.8.7 or Greater](http://ruby-lang.org/) _Comes pre-installed in OS X_
 
 **Okay, let's go**
 
  1. `brew install mp3splt` _Install the mp3 clipping lbrary, it does the heavy-lifting._
- 1. `gem install cuesnap` _The cuesnap command will now be available._
+ 1. `sudo gem install cuesnap` _The cuesnap command will now be available._
  1. `cuesnap phattrack.mp3 phattrack.cue` _*snap -- zzrgt -- crack*_
  1. `open phattrack` _Gaze into the eyes of your slim mp3 files_
 
@@ -60,7 +60,6 @@ _Tested on Mac OS X 10.7 (Lion)._
 
  1. Unicode Support _Fail test is already in_.
  2. Error Message when mp3splt is missing.
- 3. Lower requirements to Ruby 1.8.7 (OS X built-in Ruby).
 
 ## Contributing
 

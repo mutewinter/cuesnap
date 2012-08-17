@@ -14,12 +14,13 @@ Gem::Specification.new do |s|
   s.name          = "cuesnap"
   s.require_paths = ["lib"]
   s.version       = CueSnap::VERSION
-  s.required_ruby_version = '>= 1.9.2'
+  s.required_ruby_version = '>= 1.8.6'
 
   # Regular Gems
   s.add_dependency 'rubycue', '~> 0.1.0'
   s.add_dependency 'methadone', '~> 1.2.1'
   s.add_dependency 'hashie', '~> 1.2.0'
+  s.add_dependency 'open4', '~> 1.3.0'
 
   # Development Gems
   s.add_development_dependency 'minitest', '~> 3.3.0'

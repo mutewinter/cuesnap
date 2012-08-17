@@ -1,6 +1,7 @@
-require 'cuesnap'
 require 'methadone'
 require 'pathname'
+
+require 'cuesnap/splitter'
 
 module CueSnap
   class CLI

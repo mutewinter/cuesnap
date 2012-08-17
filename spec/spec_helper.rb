@@ -36,8 +36,8 @@ def load_splitter(mp3_name, cuesheet_name)
   cuesheet = cuesheet_fixture(cuesheet_name)
 
   @splitter = CueSnap::Splitter.new(mp3, cuesheet, {
-    quiet: true,
-    output_folder: "#{Time.now.to_i}#{rand(1000)}"
+    :quiet => true,
+    :output_folder => "#{Time.now.to_i}#{rand(1000)}"
   })
 
 end
