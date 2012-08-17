@@ -40,6 +40,8 @@ _Tested on Mac OS X 10.7 (Lion)._
   --no-numbers (-nn) -
     Because, fuck sorting.
       e.g. Holy Crap - So Cool.mp3
+  -q, --quiet
+    Shut the hell up cuensap. Just be quiet.
 ```
 
 ## Setup for Development
@@ -51,10 +53,16 @@ _Tested on Mac OS X 10.7 (Lion)._
 
  That's it, now code something awesome and tell me about it.
 
+## Todo
+
+ 1. Unicode Support _Fail test is already in_.
+ 2. Error Message when mp3splt is missing.
+
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+1. [Fork it](https://github.com/mutewinter/cuesnap/fork_select).
+2. Create your feature branch (`git checkout -b my_sweet_feature`).
+3. Write some kickass code.
+3. Commit your changes (`git commit -am 'Added a sweet feature'`).
+4. Push to the branch (`git push origin my_sweet_feature`).
+5. Create new [Pull Request](https://github.com/mutewinter/cuesnap/pulls).
