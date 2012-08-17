@@ -1,7 +1,8 @@
 # CueSnap
 
-Snapping MP3s with [cue sheets](http://en.wikipedia.org/wiki/Cue_sheet_(computing))
-faster than your mom pops Pringle tops.
+Snapping MP3s with [cue sheets](1) faster than your mom pops Pringle tops.
+
+[1]: http://en.wikipedia.org/wiki/Cue_sheet_(computing)
 
 ## Setup
 
