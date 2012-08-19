@@ -11,6 +11,7 @@ _Tested on Mac OS X 10.7 (Lion)._
 **Prerequisites**
 
  1. [Mac OS X](http://store.apple.com)
+ 1. [Homebrew](http://mxcl.github.com/homebrew/)
  1. [Ruby 1.8.7 or Greater](http://ruby-lang.org/) _Comes pre-installed in OS X_
 
 **Okay, let's go**
