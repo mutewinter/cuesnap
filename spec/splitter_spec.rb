@@ -11,7 +11,7 @@ describe CueSnap::Splitter do
 
     it 'the fourth track should be proper unicode' do
       @splitter.split!
-      created_mp3s[3].must_equal "Tësting Unicode"
+      created_mp3s[3].must_equal "4 Test Artist - Tësting Unicode"
     end
 
   end
