@@ -12,8 +12,6 @@ module CueSnap
       # no-numbers comes in false when it's set, I know, crazy.
       options[:no_numbers] = !options[:'no-numbers'] if options.has_key?(:'no-numbers')
 
-      file_not_found mp3_file unless File.exists? mp3_file
-
       begin
         splitter = CueSnap::Splitter.new(mp3_file, cue_file, options)
       rescue FileNotFound => e
