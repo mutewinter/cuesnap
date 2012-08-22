@@ -15,5 +15,14 @@ describe CueSnap::CLI do
         stdout.read.must_match(/I looked for .*missing\.mp3, but didn't find it\./)
       end
     end
+
+    describe 'with mp3 containing spaces and parenthesis' do
+      it 'should not display a syntax error' do
+        command = 'bin/cuesnap spec/fixtures/with\ spaces\ and\ \(\).mp3'
+        stdin, stdout, stderr = Open3.popen3 command
+
+        stderr.read.wont_match(/syntax error/)
+      end
+    end
   end
 end
