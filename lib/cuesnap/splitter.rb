@@ -2,6 +2,9 @@ require 'hashie'
 require 'rubycue'
 
 module CueSnap
+  class MP3FileNotFound < StandardError; end
+  class CueFileNotFound < StandardError; end
+
   class Splitter
     # Public: Loads an mp3 and a RubyCue cuesheet.
     #
@@ -15,12 +18,16 @@ module CueSnap
     #
     # Returns the initalized object.
     def initialize(mp3_file, cue_file = nil, options = {})
+      raise CueSnap::MP3FileNotFound unless File.exists? mp3_file
+
       @mp3_file = mp3_file
       if cue_file and cue_file.strip != ''
         @cue_file = cue_file
       else
         @cue_file = File.expand_path("#{mp3_filename}.cue", File.dirname(@mp3_file))
       end
+
+      raise CueSnap::CueFileNotFound unless File.exists? @cue_file
 
       @options = Hashie::Mash.new options
       @output_folder = @options.output_folder

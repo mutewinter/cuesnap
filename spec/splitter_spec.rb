@@ -67,4 +67,28 @@ describe CueSnap::Splitter do
 
   end
 
+  describe 'when providing non-existant' do
+    describe 'mp3 file' do
+      it 'should throw an error' do
+        assert_raises CueSnap::MP3FileNotFound do
+          CueSnap::Splitter.new('missing_file.mp3')
+        end
+      end
+    end
+
+    describe 'cue file' do
+      it 'should throw an error' do
+        assert_raises CueSnap::CueFileNotFound do
+          CueSnap::Splitter.new(mp3_fixture('ten_minute'), 'missing_file.cue')
+        end
+      end
+    end
+  end
+
+  describe 'with an mp3 with spaces in the name' do
+    before do
+      load_splitter 'spaces in name', nil
+      cd_to_output
+    end
+
 end
