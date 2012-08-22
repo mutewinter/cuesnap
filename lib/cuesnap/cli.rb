@@ -1,8 +1,6 @@
 require 'methadone'
 require 'pathname'
 
-require 'cuesnap/splitter'
-
 module CueSnap
   class CLI
     include Methadone::Main
@@ -19,7 +17,11 @@ module CueSnap
       end
 
       if File.exists? splitter.cue_file
-        splitter.split!
+        begin
+          splitter.split!
+        rescue Iconv::IllegalSequence => e
+          exit_now! "Unicode isn't quite working yet, sorry. Strip it out of your .cue file for a temporary fix."
+        end
       else
         file_not_found splitter.cue_file
       end
