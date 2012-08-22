@@ -29,7 +29,6 @@ describe CueSnap::Splitter do
     end
 
     it 'the third track should not have a zero-padded index' do
-      # FIXME failing test
       @splitter.split!
       created_mp3s[2].must_match(/^3/)
     end
