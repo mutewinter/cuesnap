@@ -132,4 +132,12 @@ describe CueSnap::Splitter do
       end
     end
   end
+
+
+  describe 'with parenthesis in the mp3 file name' do
+    it 'should properly escape the parenthesis' do
+      splitter = CueSnap::Splitter.new(mp3_fixture('with()'))
+      File.basename(splitter.escaped_mp3_file).must_equal('with\(\).mp3')
+    end
+  end
 end

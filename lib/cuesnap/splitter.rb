@@ -1,5 +1,6 @@
 require 'hashie'
 require 'rubycue'
+require 'shellwords'
 
 module CueSnap
   class FileNotFound < StandardError; end
@@ -95,17 +96,24 @@ module CueSnap
 
     # Public: The space-escaped mp3 file path.
     def escaped_mp3_file
-      @mp3_file.gsub(/\s/, '\ ')
+      escape_path @mp3_file
     end
 
     # Public: The space-escaped output folder path.
     def escaped_output_folder
-      @output_folder.gsub(/\s/, '\ ')
+      escape_path @output_folder
     end
 
     # Public: The space-escaped cue file path.
     def escaped_cue_file
-      @cue_file.gsub(/\s/, '\ ')
+      escape_path @cue_file
+    end
+
+    private
+
+    # Internal: Escape a path for the shell.
+    def escape_path(file)
+      Shellwords.escape file
     end
 
   end
