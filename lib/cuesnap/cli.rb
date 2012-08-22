@@ -14,7 +14,11 @@ module CueSnap
 
       file_not_found mp3_file unless File.exists? mp3_file
 
-      splitter = CueSnap::Splitter.new(mp3_file, cue_file, options)
+      begin
+        splitter = CueSnap::Splitter.new(mp3_file, cue_file, options)
+      rescue FileNotFound => e
+        file_not_found e.message
+      end
 
       if File.exists? splitter.cue_file
         splitter.split!
