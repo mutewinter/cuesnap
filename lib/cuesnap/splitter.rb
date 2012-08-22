@@ -77,7 +77,7 @@ module CueSnap
       format = "#{number_format} #{format}" unless @options.no_numbers
 
       # Got to esape the spaces for the shell
-      format.gsub!(/\s/, '\\ ')
+      format = Shellwords.escape format
 
       command = ['mp3splt',
                  "-d #{escaped_output_folder}",
