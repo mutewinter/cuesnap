@@ -2,8 +2,9 @@ require 'hashie'
 require 'rubycue'
 
 module CueSnap
-  class MP3FileNotFound < StandardError; end
-  class CueFileNotFound < StandardError; end
+  class FileNotFound < StandardError; end
+  class MP3FileNotFound < FileNotFound; end
+  class CueFileNotFound < FileNotFound; end
 
   class Splitter
     attr_reader :mp3_file, :cue_file, :output_folder, :options
@@ -78,11 +79,11 @@ module CueSnap
       format.gsub!(/\s/, '\\ ')
 
       command = ['mp3splt',
-                 "-d #{output_folder}",
+                 "-d #{escaped_output_folder}",
                  "-o #{format}",
-                 "-c #@cue_file"]
+                 "-c #{escaped_cue_file}"]
       command.push '-Q' if @options.quiet
-      command.push @mp3_file
+      command.push escaped_mp3_file
 
       system command.join(' ')
     end
@@ -90,6 +91,21 @@ module CueSnap
     # Public: The filename for the mp3 file with the .mp3 extension removed.
     def mp3_filename
       File.basename(@mp3_file, '.mp3')
+    end
+
+    # Public: The space-escaped mp3 file path.
+    def escaped_mp3_file
+      @mp3_file.gsub(/\s/, '\ ')
+    end
+
+    # Public: The space-escaped output folder path.
+    def escaped_output_folder
+      @output_folder.gsub(/\s/, '\ ')
+    end
+
+    # Public: The space-escaped cue file path.
+    def escaped_cue_file
+      @cue_file.gsub(/\s/, '\ ')
     end
 
   end

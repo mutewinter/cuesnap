@@ -85,10 +85,51 @@ describe CueSnap::Splitter do
     end
   end
 
-  describe 'with an mp3 with spaces in the name' do
-    before do
-      load_splitter 'spaces in name', nil
-      cd_to_output
+  describe 'with spaces in the name of the' do
+    describe 'mp3 file' do
+      it 'should not raise an MP3FileNotFound exception' do
+        begin
+          CueSnap::Splitter.new(mp3_fixture('with spaces'))
+        rescue CueSnap::MP3FileNotFound
+          flunk 'Raised CueSnap::MP3FileNotFound exception'
+        end
+      end
+
+      it 'should properly escape the spaces in the mp3 for mp3splt' do
+        splitter = CueSnap::Splitter.new(mp3_fixture('with spaces'))
+        File.basename(splitter.escaped_mp3_file).must_equal('with\ spaces.mp3')
+      end
+
+      it 'should properly escape the spaces in the output folder for mp3splt' do
+        splitter = CueSnap::Splitter.new(mp3_fixture('with spaces'))
+        splitter.escaped_output_folder.must_equal('with\ spaces')
+      end
+
+      it 'should split the mp3 into four files' do
+        load_splitter 'with spaces', 'four_splits'
+        cd_to_output
+
+        created_mp3s.length.wont_equal 4
+        @splitter.split!
+        created_mp3s.length.must_equal 4
+      end
     end
 
+    describe 'cue file' do
+      it 'should not raise an CueFileNotFound exception' do
+        begin
+          CueSnap::Splitter.new(mp3_fixture('ten_minute'),
+                                cuesheet_fixture('with spaces'))
+        rescue CueSnap::CueFileNotFound
+          flunk 'Raised CueSnap::CueFileNotFound exception'
+        end
+      end
+
+      it 'should properly escape the spaces in the cue file for mp3splt' do
+        splitter = CueSnap::Splitter.new(mp3_fixture('ten_minute'),
+                                         cuesheet_fixture('with spaces'))
+        File.basename(splitter.escaped_cue_file).must_equal('with\ spaces.cue')
+      end
+    end
+  end
 end

@@ -39,7 +39,6 @@ def load_splitter(mp3_name, cuesheet_name)
     :quiet => true,
     :output_folder => "#{Time.now.to_i}#{rand(1000)}"
   })
-
 end
 
 # -------------
@@ -52,8 +51,8 @@ def cd_to_output
 end
 
 # Public: Get all of the mp3s in the output folder for the splitter.
-def created_mp3s
-  Dir.glob("#{@splitter.output_folder}/*.mp3").map { |f| File.basename f }
+def created_mp3s(splitter = @splitter)
+  Dir.glob("#{splitter.output_folder}/*.mp3").map { |f| File.basename f }
 end
 
 # Public: Adds after test suite callback to ensure temporary files are deleted.
