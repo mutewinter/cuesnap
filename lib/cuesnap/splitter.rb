@@ -6,6 +6,8 @@ module CueSnap
   class CueFileNotFound < StandardError; end
 
   class Splitter
+    attr_reader :mp3_file, :cue_file, :output_folder, :options
+
     # Public: Loads an mp3 and a RubyCue cuesheet.
     #
     # mp3_file  - String file path to an mp3 file.
@@ -89,8 +91,6 @@ module CueSnap
     def mp3_filename
       File.basename(@mp3_file, '.mp3')
     end
-
-    attr_reader :mp3_file, :cue_file, :output_folder, :options
 
   end
 end
