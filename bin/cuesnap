@@ -4,7 +4,7 @@ require 'rubygems'
 require 'bundler/setup'
 
 begin
-  require 'cuesnap/cli'
+  require 'cuesnap'
   CueSnap::CLI.go!
 rescue Interrupt => e
   puts "\nQuitting..."
