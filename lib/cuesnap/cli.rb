@@ -10,6 +10,11 @@ module CueSnap
       # no-numbers comes in false when it's set, I know, crazy.
       options[:no_numbers] = !options[:'no-numbers'] if options.has_key?(:'no-numbers')
 
+			# Check if mp3splt is accessible else exit
+			if (!command_accessible?('mp3splt'))
+				exit_now! "I looked for mp3splt but couldn't find it. Perhaps you need to install it."
+			end
+
       begin
         splitter = CueSnap::Splitter.new(mp3_file, cue_file, options)
       rescue FileNotFound => e
@@ -40,5 +45,15 @@ module CueSnap
     def self.file_not_found(file)
       help_now! "I looked for #{file}, but didn't find it."
     end
+
+		def self.command_accessible?(cmd)
+			ENV['PATH'].split(':').each do |folder|
+				exists = File.exists?(folder + '/' + cmd)
+				exec = File.executable?(folder + '/' + cmd) if exists
+				return true if exec
+			end
+			return false;
+		end
+
   end
 end
