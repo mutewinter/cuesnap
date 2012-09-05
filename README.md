@@ -59,6 +59,16 @@ _Tested on Mac OS X 10.7 (Lion)._
 
 ## Changelog
 
+### 1.2.0
+
+**Features**
+
+ * Now showing error when mp3splt is missing.
+
+**Bug Fixes**
+
+ * Extra requires added for Ruby 1.8.7.
+
 ### 1.1.1
 
  * Now properly escaping shell characters found in file names
@@ -66,7 +76,7 @@ _Tested on Mac OS X 10.7 (Lion)._
 ## Todo
 
  1. Unicode Support _Fail test is already in_.
- 1. Error Message when mp3splt is missing.
+ 1. -Error Message when mp3splt is missing. (Thanks goni)-
 
 ## Contributing
 
