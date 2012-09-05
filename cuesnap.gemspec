@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.email         = ['jeremy@pileofturtles.com']
   s.description   = %q{A Ruby wrapper around mp3splt that makes splitting mp3s with a cue file super simple.}
   s.summary       = %q{A command line tool for splitting mp3s with cue files}
-  s.homepage      = "http://github.com/mutewinter/cuesnap"
+  s.homepage      = "http://mutewinter.github.com/cuesnap/"
 
   s.files         = `git ls-files lib bin README.md LICENSE`.split($\)
   s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
