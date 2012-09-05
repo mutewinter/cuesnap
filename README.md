@@ -76,7 +76,7 @@ _Tested on Mac OS X 10.7 (Lion)._
 ## Todo
 
  1. Unicode Support _Fail test is already in_.
- 1. -Error Message when mp3splt is missing. (Thanks goni)-
+ 1. ~~Error Message when mp3splt is missing. (Thanks goni)~~
 
 ## Contributing
 
