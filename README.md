@@ -60,6 +60,10 @@ _Tested on Mac OS X 10.7 (Lion)._
 
 ## Changelog
 
+### 1.2.1
+ 
+ * Fixed homepage in gemspec.
+
 ### 1.2.0
 
 **Features**
