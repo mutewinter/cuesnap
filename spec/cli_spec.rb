@@ -1,4 +1,5 @@
 require File.expand_path('../spec_helper', __FILE__)
+require 'open3'
 
 describe CueSnap::CLI do
   describe 'When running the command line' do
