@@ -60,6 +60,11 @@ _Tested on Mac OS X 10.7 (Lion)._
 
 ## Changelog
 
+### 1.2.3
+
+ * Fixed extraneous output from calling `which`.
+ * Fixed `already initialized constant` error in Ruby 1.8.7.
+
 ### 1.2.2
 
  * Added mp3splt installation instructions if missing.
