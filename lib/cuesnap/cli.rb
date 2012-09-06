@@ -10,9 +10,9 @@ module CueSnap
       # no-numbers comes in false when it's set, I know, crazy.
       options[:no_numbers] = !options[:'no-numbers'] if options.has_key?(:'no-numbers')
 
-			# Check if mp3splt is accessible else exit
-			if (!command_accessible?('mp3splt'))
-				exit_now! "I looked for mp3splt but couldn't find it. Perhaps you need to install it."
+			# If mp3splt isn't defined, tell the user how to install it and exit.
+			unless command_accessible? 'mp3splt'
+				exit_now! "mp3splt is required for cuesnap to function. Run `brew install mp3splt` to install it."
 			end
 
       begin
@@ -47,12 +47,7 @@ module CueSnap
     end
 
 		def self.command_accessible?(cmd)
-			ENV['PATH'].split(':').each do |folder|
-				exists = File.exists?(folder + '/' + cmd)
-				exec = File.executable?(folder + '/' + cmd) if exists
-				return true if exec
-			end
-			return false;
+      system "which #{cmd}"
 		end
 
   end

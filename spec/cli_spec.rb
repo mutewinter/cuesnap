@@ -25,5 +25,12 @@ describe CueSnap::CLI do
         stderr.read.wont_match(/syntax error/)
       end
     end
+
+  end
+
+  describe 'When a missing command is passed to command_accessible?' do
+    it 'should return false' do
+      CueSnap::CLI.command_accessible?('missing_for_cuesnap').must_equal false
+    end
   end
 end
