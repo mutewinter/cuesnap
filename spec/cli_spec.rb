@@ -3,6 +3,7 @@ require 'open3'
 
 describe CueSnap::CLI do
   describe 'When running the command line' do
+
     describe 'with no cue file argument' do
       it 'should tell the user when no .cue file is found' do
         stdin, stdout = Open3.popen3 'bin/cuesnap spec/fixtures/ten_minute.mp3'
@@ -28,9 +29,13 @@ describe CueSnap::CLI do
 
   end
 
-  describe 'When a missing command is passed to command_accessible?' do
-    it 'should return false' do
+  describe 'When calling command_accessible?' do
+    it 'with a missing executable, it should return false' do
       CueSnap::CLI.command_accessible?('missing_for_cuesnap').must_equal false
+    end
+
+    it 'with a present executable, it should return true' do
+      CueSnap::CLI.command_accessible?('ls').must_equal true
     end
   end
 end

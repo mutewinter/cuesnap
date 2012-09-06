@@ -1,5 +1,6 @@
 require 'methadone'
 require 'pathname'
+require 'open4'
 
 module CueSnap
   class CLI
@@ -47,7 +48,13 @@ module CueSnap
     end
 
 		def self.command_accessible?(cmd)
-      system "which #{cmd}"
+      # Passing an empty block allows us to get the status as the return value.
+      status = Open4::popen4("sh") do |pid, stdin, stdout, stderr|
+        stdin.puts "which #{cmd}"
+        stdin.close
+      end
+      # A 141 exit status means which succeeded.
+      status.exitstatus == 141
 		end
 
   end
