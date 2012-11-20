@@ -60,6 +60,10 @@ _Tested on Mac OS X 10.7 (Lion)._
 
 ## Changelog
 
+### 1.2.4
+
+ * Fixed error with CueSnap::VERSION not being defined.
+
 ### 1.2.3
 
  * Fixed extraneous output from calling `which`.
