@@ -60,6 +60,10 @@ _Tested on Mac OS X 10.7 (Lion)._
 
 ## Changelog
 
+### 1.2.5
+
+ * Added error when cue file is larger than 1MB.
+
 ### 1.2.4
 
  * Fixed error with CueSnap::VERSION not being defined.
