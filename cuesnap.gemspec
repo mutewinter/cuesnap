@@ -25,4 +25,5 @@ Gem::Specification.new do |s|
   # Development Gems
   s.add_development_dependency 'minitest', '~> 3.3.0'
   s.add_development_dependency 'guard-minitest', '~> 0.5.0'
+  s.add_development_dependency 'rb-fsevent', '~> 0.9.1'
 end
