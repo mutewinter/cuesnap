@@ -141,4 +141,13 @@ describe CueSnap::Splitter do
       File.basename(splitter.escaped_mp3_file).must_equal('with\(\).mp3')
     end
   end
+
+  describe 'When splitting a using a cue file larger than 1MB' do
+    it 'should throw a CueFileTooLarge exception' do
+      assert_raises CueSnap::CueFileTooLarge do
+        CueSnap::Splitter.new(mp3_fixture('ten_minute'),
+                              cuesheet_fixture('too_large'))
+      end
+    end
+  end
 end
