@@ -6,6 +6,11 @@ module CueSnap
   class FileNotFound < StandardError; end
   class MP3FileNotFound < FileNotFound; end
   class CueFileNotFound < FileNotFound; end
+  class CueFileTooLarge < StandardError
+    def message
+      'Only cue files less than 1MB are allowed.'
+    end
+  end
 
   class Splitter
     attr_reader :mp3_file, :cue_file, :output_folder, :options
@@ -32,6 +37,9 @@ module CueSnap
       end
 
       raise CueSnap::CueFileNotFound, @cue_file unless File.exists? @cue_file
+
+      # If cue file is larger than 1MB, raise an error.
+      raise CueSnap::CueFileTooLarge if (File.size(@cue_file).to_f / 2**20) > 1
 
       @options = Hashie::Mash.new options
       @output_folder = @options.output_folder

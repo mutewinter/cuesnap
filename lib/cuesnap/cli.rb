@@ -20,6 +20,8 @@ module CueSnap
         splitter = CueSnap::Splitter.new(mp3_file, cue_file, options)
       rescue FileNotFound => e
         file_not_found e.message
+      rescue CueSnap::CueFileTooLarge => e
+        help_now! e.message
       end
 
       if File.exists? splitter.cue_file
