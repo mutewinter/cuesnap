@@ -109,3 +109,7 @@ _Tested on Mac OS X 10.7 (Lion)._
 1. Commit your changes (`git commit -am 'Added a sweet feature'`).
 1. Push to the branch (`git push origin my_sweet_feature`).
 1. Create new [Pull Request](https://github.com/mutewinter/cuesnap/pulls).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mutewinter/cuesnap/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
